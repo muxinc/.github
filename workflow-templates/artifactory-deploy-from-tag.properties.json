@@ -1,6 +1,6 @@
 {
   "name": "Android Release Deploy",
-  "description": "Categorized, sorted, formatted changelogs on Release PRs that preserve attribution and link back to the work",
+  "description": "Release Deploy for Android SDKs via Artifactory",
   "iconName": "octicon check-circle-fill",
   "categories": [
     "continuous-integration",
@@ -8,7 +8,7 @@
     "testing",
     "kotlin",
     "java",
-    "gradle"
+    "Gradle"
   ],
   "filePatterns": [
   ]
