@@ -1,22 +1,22 @@
-name: Add Release Notes to a Release PR
+name: Add Changelog to a Release PR
 
+# See https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 on:
   pull_request:
     types:
       - opened
       - reopened
       - ready_for_review
-  # Also only if the branch is 'releases/v**' but you can't specify multiple event filters
+  branches:
+      - releases/v*
 
 jobs:
   changelog:
-    name: Release Notes
+    name: 
     runs-on: ubuntu-latest
-    if: startsWith(github.head_ref, 'releases/v')
 
     steps:
-      - uses: daytime-em/changelog-on-pr@v1
+      - uses: daytime-em/changelog-on-release-pr@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          labels: breaking,new,updates,fixes,deprecated
-
+          labels: breaking,updates,fixes,deprecated
