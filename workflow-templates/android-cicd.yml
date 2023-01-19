@@ -1,4 +1,10 @@
-name: Build and Verify SDKs
+name: Build and Verify 
+# Builds, tests, and publishes dev builds of Android SDKs. The CD destination and CI configuration are handled by your gradle files. You only invoke tasks here
+# ** Building multiple modules? If one depends on another, you'll have to build the dependencies in one step and the rest in another. 
+#      See below for more info 
+# REPOSITORY SECRETS REQUIRED: (see https://docs.github.com/en/actions/security-guides/encrypted-secrets) 
+#   "ARTIFACTORY_EMAIL": an artifactory account email with publish permissions for the destination artifactory
+#   "ARTIFACTORY_PASSWORD": the password for the artifactory account
 
 on:
   push:
@@ -15,19 +21,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-      - name: Build/Publish mux-kt-utils to the Dev repo
+      # This step will build all modules configured for publication and publish them
+      # Does your project publish multiple libraries in a dependency chain? You'll have to add another copy of this step and build the dependency in the first one
+      - name: Build and Publish to Dev Repo
         uses: gradle/gradle-build-action@v2.3.3
         with:
-          arguments: mux-kt-utils:artifactoryPublish
-        env:
-          ORG_GRADLE_PROJECT_artifactory_user: ${{ secrets.ARTIFACTORY_EMAIL }}
-          ORG_GRADLE_PROJECT_artifactory_password: ${{ secrets.ARTIFACTORY_PASSWORD }}
-          GH_USER: ${{ github.actor }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build/Publish core-android to the Dev repo
-        uses: gradle/gradle-build-action@v2.3.3
-        with:
-          arguments: core-android:artifactoryPublish
+          arguments: artifactoryPublish
         env:
           ORG_GRADLE_PROJECT_artifactory_user: ${{ secrets.ARTIFACTORY_EMAIL }}
           ORG_GRADLE_PROJECT_artifactory_password: ${{ secrets.ARTIFACTORY_PASSWORD }}
