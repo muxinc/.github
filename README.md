@@ -19,7 +19,8 @@ For a guide on using starter workflows, please see (Using starter workflows)[htt
 
 ### Workflow List 
 
-| Workflow name           | Requires Config | Description                                                                                                                       |
-| ----------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Workflow name           | Requires Config | Description                                                                                                                                  |
+| ----------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `categorized-changelog` | No              | A workflow that generates a sorted, formatted, categorized changelog on a Release PR that preserves attribution for the devs who contributed |
+| `tagged-release-pr`     | No              | A workflow that generates drafts of tagged releases when you merge a release PR, and copies over the release notes from the PR               |
 
