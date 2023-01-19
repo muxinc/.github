@@ -1,0 +1,15 @@
+{
+  "name": "Android Release Deploy",
+  "description": "Release Deploy for Android SDKs via Artifactory",
+  "iconName": "octicon check-circle-fill",
+  "categories": [
+    "continuous-integration",
+    "deployment",
+    "testing",
+    "kotlin",
+    "java",
+    "Gradle"
+  ],
+  "filePatterns": [
+  ]
+}
