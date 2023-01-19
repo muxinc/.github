@@ -1,9 +1,10 @@
 {
   "name": "Nice Release Changelog",
   "description": "Categorized, sorted, formatted changelogs on Release PRs that preserve attribution and link back to the work",
-  "iconName": "example-icon",
+  "iconName": "octicon list-unordered",
   "categories": [
-    "automation"
+    "automation",
+    "utilities"
   ],
   "filePatterns": [
   ]
