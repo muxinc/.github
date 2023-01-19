@@ -1,0 +1,15 @@
+{
+  "name": "Android Release Deploy",
+  "description": "Categorized, sorted, formatted changelogs on Release PRs that preserve attribution and link back to the work",
+  "iconName": "octicon check-circle-fill",
+  "categories": [
+    "continuous-integration",
+    "deployment",
+    "testing",
+    "kotlin",
+    "java",
+    "gradle"
+  ],
+  "filePatterns": [
+  ]
+}
