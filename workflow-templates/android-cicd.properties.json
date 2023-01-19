@@ -1,0 +1,15 @@
+{
+  "name": "Android CI/CD Pipeline",
+  "description": "A CI/CD Pipeline for Android gradle projects. Deploys to artifactory according to your gradle config. Requires some config.",
+  "iconName": "octicon paste",
+  "categories": [
+    "continuous-integration",
+    "deployment",
+    "testing",
+    "kotlin",
+    "java",
+    "gradle"
+  ],
+  "filePatterns": [
+  ]
+}
