@@ -1,18 +1,13 @@
 name: Draft a new release
-# Creates Draft releases with release notes populated from the description of a release PR you just merged
-# This workflow doesn't deploy anything. If you need to run a deploy for your repo, check out the deploy-on-release template in this repo
 
 on:
   pull_request:
-    # If your project uses a different convention, you can change this.
-    # Values that won't break this workflow begin with "release" or "releases" and either a '\' or '-' (eg, release-v* or releases/v*, release/v*)
-    branches: 
-      - releases/v*
     types: [ closed ]
 
 jobs:
   draft:
-    if: github.event.pull_request.merged
+    # Change the quoted text to match your release branch naming convention
+    if: startsWith(github.head_ref, 'releases/v') && github.event.pull_request.merged
     runs-on: ubuntu-latest
     name: Create the Release on the destination branch
     steps:
@@ -20,7 +15,7 @@ jobs:
       - name: Parse the tag name out of the release branch
         id: version
         run: >
-          echo "tag_name="$(git branch --show-current | grep -E "^release.?[\/-]" | sed -E "s/release.?[\/-]//")"" >> $GITHUB_OUTPUT
+          echo "tag_name="$(echo ${{ github.head_ref }} | grep -E "^release.?[\/-]" | sed -E "s/release.?[\/-]//")"" >> $GITHUB_OUTPUT
       - name: Create the release
         id: release
         uses: actions/create-release@v1
