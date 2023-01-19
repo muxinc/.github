@@ -1,0 +1,22 @@
+name: Add Changelog to a Release PR
+
+# See https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+on:
+  pull_request:
+    branches:
+      - releases/v*
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+
+jobs:
+  changelog:
+    name: Generate Changelog for a Release PR
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: daytime-em/changelog-on-release-pr@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: breaking,updates,fixes,deprecated

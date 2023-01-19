@@ -1,0 +1,12 @@
+{
+  "name": "Tagged Releases from PRs",
+  "description": "Automatically creates draft tagged releases when you merge a release PR. Fills in notes from your release PR's description",
+  "iconName": "octicon rocket",
+  "categories": [
+    "automation",
+    "utilities"
+  ],
+  "filePatterns": [
+    "workflow-template-assets/tagged-release-pr/**"
+  ]
+}
