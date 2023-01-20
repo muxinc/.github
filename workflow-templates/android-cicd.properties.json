@@ -1,6 +1,6 @@
 {
   "name": "Deluxe Android CI/CD Pipeline",
-  "description": "A CI/CD Pipeline for Android gradle projects. Deploys to artifactory according to your gradle config.",
+  "description": "A CI/CD Pipeline for Android gradle projects. Runs unit tests and deploys dev builds to artifactory according to your gradle config.",
   "iconName": "android-logo",
   "categories": [
     "continuous-integration",
