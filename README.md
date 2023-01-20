@@ -15,7 +15,7 @@ The starter workflows can be found under [/workflow-templates](/workflow-templat
 
 ### Using a Starter Workflow
 
-For a guide on using starter workflows, please see (Using starter workflows)[https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/using-starter-workflows] in the GitHub Actions docs.
+For a guide on using starter workflows, please see [Using starter workflows](https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/using-starter-workflows) in the GitHub Actions docs.
 
 ### Workflow List 
 
