@@ -1,7 +1,7 @@
 {
   "name": "Android Release Deploy",
   "description": "Release Deploy for Android SDKs via Artifactory",
-  "iconName": "octicon check-circle-fill",
+  "iconName": "android-logo",
   "categories": [
     "continuous-integration",
     "deployment",
