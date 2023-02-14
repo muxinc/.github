@@ -9,7 +9,7 @@ git clone git@github.com:muxinc/.github.git mux-dot-github
 
 ## Starter Workflows
 
-This repo contains starter Github Actions workflows for doing common tasks like CI/CD and release automation. These are template files you can install in your repo using the GitHub website. They aren't usually ready-to-go outside the box, but comments in the workflow file can help you fill in the missing details.
+This repo contains starter Github Actions workflows for doing common tasks like CI/CD and release automation. These are template files you can install in your repo using the GitHub website. They aren't usually ready-to-go out of the box, but comments in the workflow file can help you fill in the missing details.
 
 The starter workflows can be found under [/workflow-templates](/workflow-templates). For more information on creating starter workflows, see the [Create Starter Workflows for Your Organization](https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/creating-starter-workflows-for-your-organization). 
 
