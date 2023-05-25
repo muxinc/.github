@@ -3,8 +3,9 @@
 # Ths workflow assumes your releases are tagged either "vX.X.X" or "X.X.X", where X is a number of any length
 #
 # REQUIRED SECRETS:
-#   DOCS_AWS_KEY
-#   DOCS_AWS_SECRET
+#   AWS_DOCS_KEY
+#   AWS_DOCS_SECRET
+#   DOCS_REPO_PAT
 # REQUIRED CONFIGURATION:
 #  You have to change 'YOUR-LIB' to match a URL slug for your docs, like 'upload-android' or 'data-exoplayer'
 #  You have to supply the path to your dokka output. The default is library/build/dokka/html
@@ -15,7 +16,6 @@ on:
   release:
     types:
       - published
-
 
 jobs:
   devdocs:
@@ -49,7 +49,11 @@ jobs:
           arguments: ':library:dokkaHtml'
       # REQUIRED CONFIGURATION: You have to change YOUR-LIB to a suitable URL slug for your project
       - name: Update the docs AWS bucket
-        run: >
-          aws s3 rm --recursive "s3://mux-devdocs/YOUR-LIB/latest/";
-          aws s3 sync library/build/dokka/html s3://mux-devdocs/YOUR-LIB/${{ steps.version.outputs.version_name }}/;
-          aws s3 sync library/build/dokka/html s3://mux-devdocs/YOUR-LIB/latest/;
+        run: |
+          aws s3 rm --recursive "s3://mux-devdocs/YOUR-LIB/latest/"
+          aws s3 sync library/build/dokka/html s3://mux-devdocs/YOUR-LIB/${{ steps.version.outputs.version_name }}/
+          aws s3 sync library/build/dokka/html s3://mux-devdocs/YOUR-LIB/latest/
+      - name: Update the devdocs site
+        run: |
+          echo "${{ secrets.DOCS_REPO_PAT }}" | gh auth login --with-token
+          gh workflow run -R muxinc/devdocs-directory deploy-to-s3
