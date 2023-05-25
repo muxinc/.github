@@ -1,0 +1,13 @@
+{
+  "name": "Upload Dokka to devdocs.mux.com",
+  "description": "Build and upload Dokka documentation to our s3 bucket",
+  "iconName": "octicon book",
+  "categories": [
+    "automation",
+    "utilities",
+    "deployment",
+    "kotlin"
+  ],
+  "filePatterns": [
+  ]
+}
